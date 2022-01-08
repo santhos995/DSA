@@ -114,6 +114,23 @@ class MinHeap {
     public int count() {
         return nums.size();
     }
+    public void remove(int val) {
+        int index = linearSearch(val);
+        if(index == -1)
+            return;
+
+        swap(index, nums.size()-1);
+        nums.remove(nums.size()-1);
+        heapify(index);
+    }
+
+    private int linearSearch(int val) {
+        for(int i=0;i<nums.size()-1;i++){
+            if(nums.get(i) == val)
+            return i;
+        }
+        return -1;
+    }
 }
 
 class MaxHeap {
@@ -174,5 +191,22 @@ class MaxHeap {
 
     public int count() {
         return nums.size();
+    }
+    public void remove(int val) {
+        int index = linearSearch(val);
+        if(index == -1)
+            return;
+
+        swap(index, nums.size()-1);
+        nums.remove(nums.size()-1);
+        heapify(index);
+    }
+
+    private int linearSearch(int val) {
+        for(int i=0;i<nums.size()-1;i++){
+            if(nums.get(i) == val)
+            return i;
+        }
+        return -1;
     }
 }

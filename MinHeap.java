@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
 class MinHeap {
-    List<Integer> nums = new ArrayList<>();
+    List<Integer> nums = new ArrayList<Integer>();
 
     void MinHeap() {
         nums = new ArrayList<>();
@@ -56,5 +60,38 @@ class MinHeap {
 
     public int count() {
         return nums.size();
+    }
+
+    public void remove(int val) {
+        int index = linearSearch(val);
+        if(index == -1)
+            return;
+
+        swap(index, nums.size()-1);
+        nums.remove(nums.size()-1);
+        heapify(index);
+    }
+
+    private int linearSearch(int val) {
+        for(int i=0;i<nums.size()-1;i++){
+            if(nums.get(i) == val)
+            return i;
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        MinHeap minHeap = new MinHeap();
+        minHeap.add(10);
+        System.out.println(minHeap.peek());
+        minHeap.add(5);
+        System.out.println(minHeap.peek());
+        minHeap.add(7);
+        System.out.println(minHeap.peek());
+        minHeap.add(1);
+        System.out.println(minHeap.peek());
+        System.out.println(minHeap.poll());
+        System.out.println(minHeap.poll());
+        System.out.println(minHeap.peek());
+
     }
 }
