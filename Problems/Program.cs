@@ -4,9 +4,8 @@ public class Solution
 {
     public static void Main(string[] st)
     {
-        UniquePath s = new UniquePath();
-        Console.WriteLine(   s.UniquePaths(3, 7));
-        Console.WriteLine(   s.UniquePaths(3, 2));
+        CountVowelPerm s = new CountVowelPerm();
+        s.CountVowelPermutation(2);
     }
     int[,,] memo;
     int[] p;
