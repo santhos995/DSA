@@ -72,6 +72,31 @@ public class Solution {
         return root;
     }
 
+    public Node CloneGraphBFSOptimized(Node node){
+        if(node==null) return node;
+        
+        Node root = new Node(node.val);
+        
+        var map = new Dictionary<int, Node>();
+        map.Add(root.val,root);
+        Queue<Node> q = new Queue<Node>();
+        q.Enqueue(node);
+        
+        while(q.Count>0){
+            var cur = q.Dequeue();
+            var curNewNode = map[cur.val];
+            foreach (var neighbor in cur.neighbors)
+            {
+                if(!map.ContainsKey(neighbor.val)){//only if not in the map, we need to enqueue bcs what are all in map are already visited
+                    map.Add(neighbor.val,new Node(neighbor.val));
+                    q.Enqueue(neighbor);
+                }
+                curNewNode.neighbors.Add(map[neighbor.val]);
+            }
+        }
+        return root;
+    }
+
     public Node CloneGraphDFS(Node node){
         
     }
