@@ -99,5 +99,26 @@ public class Solution {
 
     public Node CloneGraphDFS(Node node){
         
+        var map = new Dictionary<int, Node>();
+        return dfs(node, map);
+    }
+    private Node dfs(Node node, Dictionary<int, Node> map){
+        if(node == null) return null;
+        if(map.ContainsKey(node.val))
+            return map[node.val];
+        
+        var newNode = new Node(node.val);
+        map.Add(node.val, newNode);
+        foreach (var neighbor in node.neighbors)
+        {
+            if(!map.ContainsKey(neighbor.val)){
+                var newNeighbor = dfs(neighbor, map);
+                newNode.neighbors.Add(newNeighbor);
+            }
+            else{
+                newNode.neighbors.Add(map[neighbor.val]);
+            }
+        }
+        return newNode;
     }
 }
