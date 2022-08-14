@@ -50,10 +50,12 @@ namespace Sol
         {
             if (head == null)
                 return head;
-            //Three passes needed
-            //First pass - create new node and add it to the next pointer of original node and mark its next node to original node's next pointer
-            //Second pass - remap random pointers
-            //Third pass - remove original Nodes
+            /*Three passes needed
+                First pass - create new node and add it to the next pointer of 
+                    original node and mark its next node to original node's next pointer
+                Second pass - remap random pointers
+                Third pass - remove original Nodes
+            */
             Node node = head;
             while (node != null)
             {
