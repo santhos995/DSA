@@ -1,0 +1,5 @@
+Steps in SDI
+1) Ask refining question
+2) Handle data
+3) Discuss components
+4) Discuss tradeoffs
