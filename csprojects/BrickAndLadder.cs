@@ -6,15 +6,15 @@ namespace csprojects
         public int FurthestBuilding(int[] heights, int bricks, int ladders)
         {
             int n = heights.Length;
-            int[,,] memo = new int[n, bricks, ladders ];
+            Dictionary<string, int> memo = new();
             return furtherCalc(heights, 0, bricks, ladders, memo);
         }
-        int furtherCalc(int[] heights, int i, int bricks, int ladder, int[,,] memo)
+        int furtherCalc(int[] heights, int i, int bricks, int ladder, Dictionary<string, int> memo)
         {
             int n = heights.Length;
             if (i >= n - 1) return 0;
-
-            if (memo[i, bricks, ladder] != 0) return memo[i, bricks, ladder];
+            string key = $"{i}:{bricks}:{ladder}";
+            if (memo.ContainsKey(key)) return memo[key];
             if (heights[i] >= heights[i + 1])
                 return 1 + furtherCalc(heights, i + 1, bricks, ladder, memo);
 
@@ -27,7 +27,8 @@ namespace csprojects
             if (ladder > 0)
                 path2 = (1 + furtherCalc(heights, i + 1, bricks, ladder - 1, memo));//choosing ladder
 
-            return memo[i, bricks, ladder] = Math.Max(path1, path2);
+            memo.Add(key, Math.Max(path1, path2));
+            return memo[key];
         }
     }
 }

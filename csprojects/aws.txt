@@ -1,0 +1,18 @@
+1) Open EC2 instance dashboard
+2) Create Security group with inbound and outbound rule under network and security tab
+3) Create Key Pair for ssh under network and security tab. Download .Pem file
+4) Create and launch instance by giving necessary parameters, attaching the Key Pair and securitygroup created before
+5) Test the instance connection via connect, putty(keypair file- ssh) or by hosting any web service and accessing it from local browser.
+6) Clean up the instance, security group and keypair.
+
+LAB-2 (https://www.educative.io/cloudlabs/understanding-cloud-computing-essentials-from-zero-to-hero/RMln1xNDoxE)
+1) Create an IAMUser -> IAM user service
+2) Create S3 bucket, upload files in objects tab
+3) Create IAM Role to make EC2 instance access the files stored in the S3 bucket.
+4) Create Security role for EC2 instance and launch instance with UserData to do some prerequisite,
+ attach the IAM Role created in step 3.
+5) Connect to the launched instance and use terminal to connect to S3 bucket's file using aws cli, copy to local,
+ run nginx service, use it to host some index.html page. Access it from outside browser using the publicURL
+6) Create Security role for lamda function like same as step 4.
+7) Create a lamda function, inside function read index.html from S3 bucket and print it. 
+ Invoke the lamda function using the publicURL of that funtion.

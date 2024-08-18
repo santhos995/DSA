@@ -3,3 +3,14 @@ Steps in SDI
 2) Handle data
 3) Discuss components
 4) Discuss tradeoffs
+-------------------------------------------------------------------------------------------------------------------------------------
+Diff Reliability vs Availability?
+Reliability measures whether the system has delivered the correct output at a specific, defined time—e.g., transferring payroll funds to the correct accounts on the right day. 
+Availability measures the system’s up-time—for example, providing uninterrupted oxygen monitoring to premature babies during their necessary incubation period.
+-------------------------------------------------------------------------------------------------------------------------------------
+Scalability is the ability of a system to handle an increasing amount of workload without compromising performance
+-------------------------------------------------------------------------------------------------------------------------------------
+Association - Relation between two objects (Bank and Employees) - Represented by Simple Line
+Aggregation - Has-A relation (Department and Students), (College and Students). Both can survive independently. 
+Represented by hollow Diamond in main object side(who HAS the other objects). In this example, Department and College has that Diamond side.
+Composition - Part-Of relation. The composed object can't exist without the other object. (Car and Engine) - An engine will not exist if car is destroyed/met with accident.
