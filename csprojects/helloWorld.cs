@@ -67,13 +67,32 @@ namespace csprojects
             res = countSubstringK.CountKConstraintSubstrings("1010101",2);
             System.Console.WriteLine(res);
             res = countSubstringK.CountKConstraintSubstrings("11111",1);
-            System.Console.WriteLine(res);*/
+            System.Console.WriteLine(res);
             RotateMatrix rotateMatrix = new RotateMatrix();
             int[][] input = new int[3][];
             input[0] = new int[] { 0, 1, 2};
             input[1] = new int[] { 3, 4, 5 };
             input[2] = new int[]{6, 7, 8};
-            rotateMatrix.Rotate(input); 
+            rotateMatrix.Rotate(input); */
+
+            /*
+            LRUCache lru = new LRUCache(1);
+            lru.Put(1, 1);
+            lru.Put(2, 2);
+            lru.Get(1);
+            lru.Put(3, 3);
+            lru.Get(2);
+            lru.Put(4, 4);
+            lru.Get(1);
+            lru.Get(3);
+            lru.Get(4);
+            
+            lru.Put(2, 1);
+            lru.Get(2);*/
+
+            TopKFreq topKFreq= new TopKFreq();
+            var res = topKFreq.TopKFrequent(new int[] { 1,1,1,2,2,3},2);
+            System.Console.WriteLine(string.Join(",",res));
         }
     }
 }

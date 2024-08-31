@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 public class LRUCache {
 
     Dictionary<int, dll> cache;
@@ -49,21 +51,12 @@ public class LRUCache {
 
     void BringNodeToFront(dll node){
         Console.WriteLine($"Bring {node.val}:{lastNode.val}");
-        if(node==lastNode){
-            lastNode = lastNode.prev;
-            lastNode.next = null;
-        }else{
-        //First break this node from linkedlist chain
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
+        if(cache.Count>1){
+            node.prev.next = null;
+            lastNode = node.prev;
         }
-
         //add to fronnt
-        dll firstNode = dummyHead.next;
-        dummyHead.next = node;
-        node.prev = dummyHead;
-        node.next = firstNode;
-        firstNode.prev = node;
+       BringToFront(node);
     }
     int EvictLastNode(){
         int key = lastNode.key;
@@ -75,17 +68,23 @@ public class LRUCache {
 
     dll AddNodeToFront(int key, int val){
         dll node = new dll(key, val, dummyHead, dummyHead.next);
-        dummyHead.next.prev = node;
-        dummyHead.next = node;
+       BringToFront(node);
         return node;
     }
-
+void BringToFront(dll node){
+     dll firstNode = dummyHead.next;
+        dummyHead.next = node;
+        node.prev = dummyHead;
+        node.next = firstNode;
+        firstNode.prev = node;
+}
     public class dll{//doubly linked list
         public int val;
         public int key;
         public dll prev;
         public dll next;
         public dll(int key, int val, dll prev=null,dll next=null){
+            this.key = key;
             this.val = val;
             this.prev = prev;
             this.next = next;
