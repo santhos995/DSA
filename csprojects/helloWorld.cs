@@ -88,11 +88,15 @@ namespace csprojects
             lru.Get(4);
             
             lru.Put(2, 1);
-            lru.Get(2);*/
+            lru.Get(2);
 
             TopKFreq topKFreq= new TopKFreq();
-            var res = topKFreq.TopKFrequent(new int[] { 1,1,1,2,2,3},2);
-            System.Console.WriteLine(string.Join(",",res));
+            var res = topKFreq.TopKFrequent(new int[] { 4,1,-1,2,-1,2,3},2);
+            System.Console.WriteLine(string.Join(",",res));*/
+            MinWindowSubString m = new MinWindowSubString();
+//            var res = m.MinWindow("ADOBECODEBANC", "ABC");
+var res = m.MinWindow("a", "A");
+            System.Console.WriteLine(res);
         }
     }
 }

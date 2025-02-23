@@ -9,10 +9,11 @@ public class TopKFreq {
             }
             map[x]++;
         }
-        Heap<Freq> heap = new Heap<Freq>(new CustomComparer());
+        HeapItr<Freq> heap = new HeapItr<Freq>(new CustomComparer());
         foreach(var pair in map) {
             System.Console.WriteLine($"Adding {pair.Key}:{pair.Value}");
             heap.Add(new Freq(pair.Key, pair.Value));
+            System.Console.WriteLine($"Now peek - {heap.Peek().num}");
             if(heap.Count()>k){
                 var ans = heap.Poll();
                 System.Console.WriteLine($"Removing {ans.num}:{ans.fre}");

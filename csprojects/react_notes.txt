@@ -1,0 +1,6 @@
+URL - https://react.dev/learn/tutorial-tic-tac-toe#prerequisites
+
+Components are used to render, manage, and update the UI elements in your application.
+React provides a special function called useState that you can call from your component to let it “remember” things
+React components use props to communicate with each other
+A JSX element is a combination of JavaScript code and HTML tags that describes what you’d like to display
